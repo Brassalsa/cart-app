@@ -3,21 +3,24 @@ import './Header.css';
 import { NavLink, useNavigate} from "react-router-dom";
 import Badge from '@mui/material-next/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useRef } from 'react';
 
 
 
 export default function Header({cartCount}){
     const navigate = useNavigate();
+
+    const nav = useRef(null);
+    const navToggle = useRef(null);
+   
     function openMenu(e){
-      const nav = document.querySelector('.navigation');
-      const navToggle =  document.querySelector('.mobile-nav-toggle');
-      const visibility = nav.getAttribute('data-visible');
+      const visibility = nav.current.getAttribute('data-visible');
       if (visibility == 'false') {
-        nav.setAttribute('data-visible', true)
-        navToggle.setAttribute('aria-expanded', true);
+        nav.current.setAttribute('data-visible', true)
+        navToggle.current.setAttribute('aria-expanded', true);
       } else {
-        nav.setAttribute('data-visible', false)
-        navToggle.setAttribute('aria-expanded', false);
+        nav.current.setAttribute('data-visible', false)
+        navToggle.current.setAttribute('aria-expanded', false);
       }
     }
 
@@ -27,7 +30,7 @@ export default function Header({cartCount}){
         
         <h2 className='title' onClick={()=>navigate(LINKS.home)}>compromise.io</h2>
           
-          <button onClick={openMenu} aria-controls='navigation'
+          <button ref={navToggle} onClick={openMenu} aria-controls='navigation'
           aria-expanded='false' className='mobile-nav-toggle'
           >
           <svg className='hamburger' viewBox='0 0 100 100' width='10'>
@@ -47,7 +50,7 @@ export default function Header({cartCount}){
 
           </button>
           
-          <nav data-visible="false" className="navigation" id='navigation'>
+          <nav ref={nav} data-visible="false" className="navigation" id='navigation'>
             <NavLink to={LINKS.home}
             onClick={openMenu}
              className={({ isActive, isPending }) =>
