@@ -1,7 +1,7 @@
 # Install
-bash```
+```
 npm i
-```bash
+```
 
 # Run
 ```
