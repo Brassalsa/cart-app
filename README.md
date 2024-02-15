@@ -1,5 +1,15 @@
+compromise.io is a front end only cart application made with React.js.
+
+Deployed on [Netlify](https://app.netlify.com/)
+
+Here's Live preview [cart-app](https://compromise-io.netlify.app/)
+
+Products are fetched from [Fake store api](https://fakestoreapi.com/)
+
+
 # Install
 ```
+git clone https://github.com/Brassalsa/cart-app
 npm i
 ```
 
@@ -8,15 +18,7 @@ npm i
 npm run dev
 ```
 
-# Cart App 
 
-Fictional Store React App. 
-
-Deployed on [Netlify](https://app.netlify.com/)
-
-Here's Live preview [cart-app](https://compromise-io.netlify.app/)
-
-Products are fetched from [Fake store api](https://fakestoreapi.com/)
 
 
 
